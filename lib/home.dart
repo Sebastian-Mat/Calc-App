@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "physics.dart";
+import 'mathematics.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 2;
   List<Widget> _widgetOptions = [
     Physics(),
-    Text("Math"),
+    Mathematics(),
     Text("Home"),
     Text("Geometry"),
     Text("Text")
@@ -36,7 +37,9 @@ class _HomeState extends State<Home> {
                   topRight: Radius.circular(30), topLeft: Radius.circular(30)),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.black.withOpacity(0.2), spreadRadius: 0, blurRadius: 5),
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 0,
+                    blurRadius: 5),
               ],
             ),
             child: ClipRRect(

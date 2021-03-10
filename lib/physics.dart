@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Operations.dart';
 
 class Physics extends StatefulWidget {
   @override
@@ -52,6 +53,33 @@ class _PhysicsState extends State<Physics> {
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              IconButton(
+                                onPressed: () {},
+                                splashColor: Colors.amber,
+                                tooltip: "Speed Calculator",
+                                icon: Icon(
+                                  Icons.speed,
+                                  color: Color(0xffFF3131),
+                                ),
+                                iconSize:
+                                    MediaQuery.of(context).size.width * 0.15,
+                              ),
+                              Text(
+                                "Speed",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Roboto",
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.06,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ]),
+                      ),
+
+                      /*child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
                               Icon(Icons.speed,
                                   size:
                                       MediaQuery.of(context).size.width * 0.15,
@@ -65,8 +93,8 @@ class _PhysicsState extends State<Physics> {
                                             0.06,
                                     fontWeight: FontWeight.bold,
                                   )),
-                            ]),
-                      ),
+                            ]),*/
+
                       Container(
                         width: MediaQuery.of(context).size.width * 0.42,
                         height: MediaQuery.of(context).size.height * 0.20,
@@ -83,6 +111,32 @@ class _PhysicsState extends State<Physics> {
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              IconButton(
+                                onPressed: () {},
+                                splashColor: Colors.amber,
+                                tooltip: "Force Calculator",
+                                icon: Icon(
+                                  Icons.compare_arrows,
+                                  color: Color(0xff31FF31),
+                                ),
+                                iconSize:
+                                    MediaQuery.of(context).size.width * 0.15,
+                              ),
+                              Text(
+                                "Force",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Roboto",
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.06,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ]),
+
+                        /*child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
                               Icon(
                                 Icons.compare_arrows,
                                 size: MediaQuery.of(context).size.width * 0.15,
@@ -97,7 +151,7 @@ class _PhysicsState extends State<Physics> {
                                             0.06,
                                     fontWeight: FontWeight.bold,
                                   )),
-                            ]),
+                            ]),*/
                       ),
                     ],
                   ),
@@ -120,6 +174,31 @@ class _PhysicsState extends State<Physics> {
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              IconButton(
+                                onPressed: () {},
+                                splashColor: Colors.amber,
+                                tooltip: "Voltage Calculator",
+                                icon: Icon(
+                                  Icons.dynamic_form_outlined,
+                                  color: Color(0xffFFC431),
+                                ),
+                                iconSize:
+                                    MediaQuery.of(context).size.width * 0.15,
+                              ),
+                              Text(
+                                "Voltage",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: "Roboto",
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.06,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ]),
+                        /*child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
                               Icon(
                                 Icons.dynamic_form_outlined,
                                 size: MediaQuery.of(context).size.width * 0.15,
@@ -134,7 +213,7 @@ class _PhysicsState extends State<Physics> {
                                             0.06,
                                     fontWeight: FontWeight.bold,
                                   )),
-                            ]),
+                            ]),*/
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.42,
