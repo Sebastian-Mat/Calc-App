@@ -22,7 +22,7 @@ class _MathematicsState extends State<Mathematics> {
                   style: TextStyle(
                     fontFamily: "Roboto",
                     fontWeight: FontWeight.bold,
-                    fontSize: 35,
+                    fontSize:  MediaQuery.of(context).size.width * 0.1,
                   ),
                 )
               ],
@@ -36,168 +36,99 @@ class _MathematicsState extends State<Mathematics> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.42,
+                      ButtonTheme(
+                        minWidth: MediaQuery.of(context).size.width * 0.42,
                         height: MediaQuery.of(context).size.height * 0.20,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                spreadRadius: 0,
-                                blurRadius: 10),
-                          ],
-                        ),
-                        child: Material(
-                          borderRadius: BorderRadius.circular(20),
+                        child: RaisedButton(
+                          onPressed: () {},
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           color: Colors.white,
-                          child: InkWell(
-                            splashColor: Colors.blue,
-                            onTap: () {
-                              print("Potences");
-                            },
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.select_all_sharp,
-                                    size: MediaQuery.of(context).size.width *
-                                        0.15,
-                                    color: Color(0xff31FF31),
-                                  ),
-                                  Text("Potence",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: "Roboto",
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.06,
-                                        fontWeight: FontWeight.bold,
-                                      )),
-                                ]),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.superscript,
+                                color: Color(0xff5DB6FF),
+                                size: MediaQuery.of(context).size.width * 0.15,
+                              ),
+                              Text("Power",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Roboto",
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.05,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            ],
                           ),
                         ),
                       ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.42,
+                      ButtonTheme(
+                        minWidth: MediaQuery.of(context).size.width * 0.42,
                         height: MediaQuery.of(context).size.height * 0.20,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                spreadRadius: 0,
-                                blurRadius: 10),
-                          ],
-                        ),
-                        child: Material(
-                          borderRadius: BorderRadius.circular(20),
+                        child: RaisedButton(
+                          onPressed: () {},
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           color: Colors.white,
-                          child: InkWell(
-                            splashColor: Colors.blue,
-                            onTap: () {
-                              print("Fractional sums");
-                            },
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.select_all_sharp,
-                                    size: MediaQuery.of(context).size.width *
-                                        0.15,
-                                    color: Color(0xff31FF31),
-                                  ),
-                                  Text("Fractional sums",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: "Roboto",
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.05,
-                                        fontWeight: FontWeight.bold,
-                                      )),
-                                ]),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.functions_rounded,
+                                color: Color(0xffAE5DFF),
+                                size: MediaQuery.of(context).size.width * 0.15,
+                              ),
+                              Text("Fraction",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: "Roboto",
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.05,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            ],
                           ),
                         ),
                       ),
                     ],
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.42,
+                      ButtonTheme(
+                        minWidth: MediaQuery.of(context).size.width * 0.42,
                         height: MediaQuery.of(context).size.height * 0.20,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                spreadRadius: 0,
-                                blurRadius: 10),
-                          ],
-                        ),
-                        child: Material(
-                          borderRadius: BorderRadius.circular(20),
+                        child: RaisedButton(
+                          onPressed: () {},
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           color: Colors.white,
-                          child: InkWell(
-                            splashColor: Colors.blue,
-                            onTap: () {
-                              print("MCD & MCM");
-                            },
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.select_all_sharp,
-                                    size: MediaQuery.of(context).size.width *
-                                        0.15,
-                                    color: Color(0xff31FF31),
-                                  ),
-                                  Text("MCD & MCM",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: "Roboto",
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.05,
-                                        fontWeight: FontWeight.bold,
-                                      )),
-                                ]),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.42,
-                        height: MediaQuery.of(context).size.height * 0.20,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                spreadRadius: 0,
-                                blurRadius: 10),
-                          ],
-                        ),
-                        child: Column(
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
-                                Icons.next_week_outlined,
+                                Icons.switch_left_rounded,
+                                color: Color(0xffFF5DB3),
                                 size: MediaQuery.of(context).size.width * 0.15,
-                                color: Color(0xffB4B4B4),
                               ),
-                              Text("Soon",
+                              Text("GCD or LCM",
                                   style: TextStyle(
-                                    color: Color(0xffB4B4B4),
+                                    color: Colors.black,
                                     fontFamily: "Roboto",
                                     fontSize:
                                         MediaQuery.of(context).size.width *
-                                            0.06,
+                                            0.05,
                                     fontWeight: FontWeight.bold,
-                                  ))
-                            ]),
+                                  )),
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),

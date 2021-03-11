@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import "physics.dart";
 import 'mathematics.dart';
+import 'geometry.dart';
+import 'text.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,8 +15,8 @@ class _HomeState extends State<Home> {
     Physics(),
     Mathematics(),
     Text("Home"),
-    Text("Geometry"),
-    Text("Text")
+    Geometry(),
+    ScreenText(),
   ];
 
   void _onItemTap(int index) {
@@ -26,9 +28,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: SizedBox(
         height: 90,
         child: Container(
@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
                       label: "Home",
                     ),
                     BottomNavigationBarItem(
-                      icon: Icon(Icons.square_foot),
+                      icon: Icon(Icons.category),
                       label: "Geometry",
                     ),
                     BottomNavigationBarItem(
