@@ -29,6 +29,8 @@ class _ScreenTextState extends State<ScreenText> {
               ],
             ),
             Container(
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.026),
               height: MediaQuery.of(context).size.height * 0.54,
               padding: EdgeInsets.fromLTRB(0, 25, 0, 25),
               child: Column(

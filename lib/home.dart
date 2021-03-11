@@ -10,11 +10,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 0;
   List<Widget> _widgetOptions = [
     Physics(),
     Mathematics(),
-    Text("Home"),
     Geometry(),
     ScreenText(),
   ];
@@ -61,10 +60,6 @@ class _HomeState extends State<Home> {
                     BottomNavigationBarItem(
                       icon: Icon(Icons.subscript),
                       label: "Mathematics",
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.home),
-                      label: "Home",
                     ),
                     BottomNavigationBarItem(
                       icon: Icon(Icons.category),
