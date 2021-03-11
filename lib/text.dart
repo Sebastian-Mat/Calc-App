@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'format.dart';
 
 class ScreenText extends StatefulWidget {
   @override
@@ -38,7 +39,10 @@ class _ScreenTextState extends State<ScreenText> {
                         minWidth: MediaQuery.of(context).size.width * 0.42,
                         height: MediaQuery.of(context).size.height * 0.20,
                         child: RaisedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Format()));
+                          },
                           elevation: 5,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),

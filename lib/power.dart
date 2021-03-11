@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
-class Speed extends StatefulWidget {
+class Power extends StatefulWidget {
   @override
-  _SpeedState createState() => _SpeedState();
+  _PowerState createState() => _PowerState();
 }
 
-class _SpeedState extends State<Speed> {
-  double distance, time;
+class _PowerState extends State<Power> {
+  double base, power;
   String result = "";
 
   @override
@@ -44,11 +45,11 @@ class _SpeedState extends State<Speed> {
           MediaQuery.of(context).size.height * 0.03,
         ),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Speed Calculator",
+                Text("Power Calculator",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: MediaQuery.of(context).size.width * 0.14,
@@ -58,7 +59,7 @@ class _SpeedState extends State<Speed> {
                   margin: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.025,
                       bottom: MediaQuery.of(context).size.height * 0.05),
-                  child: Text("Calculate speed by Distance and Time",
+                  child: Text("Calculate power by base and exponent",
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: MediaQuery.of(context).size.width * 0.045,
@@ -82,18 +83,19 @@ class _SpeedState extends State<Speed> {
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         setState(() {
-                          distance = double.parse(value);
+                          base = double.parse(value);
                         });
                       },
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Distance",
+                        hintText: "Base",
                         hintStyle: TextStyle(color: Color(0xff494D5f)),
                       )),
                 ),
                 Container(
                   margin: EdgeInsets.only(
-                      top: 10, bottom: MediaQuery.of(context).size.height * 0.03),
+                      top: 10,
+                      bottom: MediaQuery.of(context).size.height * 0.03),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Color(0xffF8F8F8),
@@ -110,12 +112,12 @@ class _SpeedState extends State<Speed> {
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         setState(() {
-                          time = double.parse(value);
+                          power = double.parse(value);
                         });
                       },
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Time",
+                        hintText: "Exponent",
                         hintStyle: TextStyle(color: Color(0xff494D5f)),
                       )),
                 ),
@@ -125,7 +127,7 @@ class _SpeedState extends State<Speed> {
                   child: RaisedButton(
                     onPressed: () {
                       setState(() {
-                        result = (distance / time).toString();
+                        result = (math.pow(base, power)).toString();
                       });
                     },
                     elevation: 5,
@@ -139,7 +141,8 @@ class _SpeedState extends State<Speed> {
                             style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Roboto",
-                              fontSize: MediaQuery.of(context).size.width * 0.05,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.05,
                               fontWeight: FontWeight.bold,
                             )),
                       ],
@@ -155,7 +158,8 @@ class _SpeedState extends State<Speed> {
                         Text("Result",
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: MediaQuery.of(context).size.width * 0.14,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.14,
                               fontWeight: FontWeight.bold,
                             )),
                         Text(result,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'power.dart';
+import 'fraction.dart';
 
 class Mathematics extends StatefulWidget {
   @override
@@ -40,7 +42,10 @@ class _MathematicsState extends State<Mathematics> {
                         minWidth: MediaQuery.of(context).size.width * 0.42,
                         height: MediaQuery.of(context).size.height * 0.20,
                         child: RaisedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Power()));
+                          },
                           elevation: 5,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
@@ -70,7 +75,10 @@ class _MathematicsState extends State<Mathematics> {
                         minWidth: MediaQuery.of(context).size.width * 0.42,
                         height: MediaQuery.of(context).size.height * 0.20,
                         child: RaisedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => FractionAdd()));
+                          },
                           elevation: 5,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
