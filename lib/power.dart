@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'validation.dart';
 
 class Power extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class Power extends StatefulWidget {
 class _PowerState extends State<Power> {
   double base, power;
   String result = "";
+  var validation = Validation();
 
   @override
   Widget build(BuildContext context) {
@@ -126,9 +128,14 @@ class _PowerState extends State<Power> {
                   height: MediaQuery.of(context).size.height * 0.06,
                   child: RaisedButton(
                     onPressed: () {
-                      setState(() {
-                        result = (math.pow(base, power)).toString();
-                      });
+                      if (validation.isEmpty(base) ||
+                          validation.isEmpty(power)) {
+                          validation.showToastText();
+                      } else {
+                        setState(() {
+                          result = (math.pow(base, power)).toString();
+                        });
+                      } 
                     },
                     elevation: 5,
                     shape: RoundedRectangleBorder(

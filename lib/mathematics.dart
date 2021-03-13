@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'power.dart';
 import 'fraction.dart';
+import 'mcdm.dart';
 
 class Mathematics extends StatefulWidget {
   @override
@@ -112,7 +113,10 @@ class _MathematicsState extends State<Mathematics> {
                         minWidth: MediaQuery.of(context).size.width * 0.42,
                         height: MediaQuery.of(context).size.height * 0.20,
                         child: RaisedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => MCDM()));
+                          },
                           elevation: 5,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),

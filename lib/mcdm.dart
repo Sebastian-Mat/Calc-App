@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'validation.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-class FractionAdd extends StatefulWidget {
+class MCDM extends StatefulWidget {
   @override
-  _FractionAddState createState() => _FractionAddState();
+  _MCDMState createState() => _MCDMState();
 }
 
-class _FractionAddState extends State<FractionAdd> {
-  double f1Num, f1Den, f2Num, f2Den;
+class _MCDMState extends State<MCDM> {
+  int group = 0;
+  double x, y, z;
   String result = "";
-  var validation = Validation(); 
+  var validation = Validation();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class _FractionAddState extends State<FractionAdd> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Addition Calculator",
+                Text("GCD & LCM Calculator",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: MediaQuery.of(context).size.width * 0.14,
@@ -60,18 +62,21 @@ class _FractionAddState extends State<FractionAdd> {
                   margin: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.025,
                       bottom: MediaQuery.of(context).size.height * 0.06),
-                  child: Text("Calculate addition of two fractions",
+                  child: Text(
+                      "Calculate Greatest Common Divisor and  Least Common Multiple",
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: MediaQuery.of(context).size.width * 0.045,
                       )),
                 ),
                 Container(
+                  margin: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).size.height * 0.02),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width * 0.40,
+                          width: MediaQuery.of(context).size.width * 0.26,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Color(0xffF8F8F8),
@@ -88,17 +93,17 @@ class _FractionAddState extends State<FractionAdd> {
                               keyboardType: TextInputType.number,
                               onChanged: (value) {
                                 setState(() {
-                                  f1Num = double.parse(value);
+                                  x = double.parse(value);
                                 });
                               },
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: "Numerator",
+                                hintText: "Num 1",
                                 hintStyle: TextStyle(color: Color(0xff494D5f)),
                               )),
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width * 0.40,
+                          width: MediaQuery.of(context).size.width * 0.26,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Color(0xffF8F8F8),
@@ -115,98 +120,129 @@ class _FractionAddState extends State<FractionAdd> {
                               keyboardType: TextInputType.number,
                               onChanged: (value) {
                                 setState(() {
-                                  f1Den = double.parse(value);
+                                  y = double.parse(value);
                                 });
                               },
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: "Denominator",
+                                hintText: "Num 2",
+                                hintStyle: TextStyle(color: Color(0xff494D5f)),
+                              )),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.26,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color(0xffF8F8F8),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                offset: Offset(0.0, 1.0), //(x,y)
+                                blurRadius: 6.0,
+                              ),
+                            ],
+                          ),
+                          padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                          child: TextFormField(
+                              keyboardType: TextInputType.number,
+                              onChanged: (value) {
+                                setState(() {
+                                  z = double.parse(value);
+                                });
+                              },
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Num 3",
                                 hintStyle: TextStyle(color: Color(0xff494D5f)),
                               )),
                         ),
                       ]),
                 ),
                 Container(
-                  margin: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.03,
-                      bottom: MediaQuery.of(context).size.height * 0.05),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    margin: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).size.height * 0.02),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.40,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Color(0xffF8F8F8),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                offset: Offset(0.0, 1.0), //(x,y)
-                                blurRadius: 6.0,
-                              ),
-                            ],
-                          ),
-                          padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                          child: TextFormField(
-                              keyboardType: TextInputType.number,
+                        Column(children: [
+                          Radio(
+                              value: 1,
+                              groupValue: group,
                               onChanged: (value) {
                                 setState(() {
-                                  f2Num = double.parse(value);
+                                  group = value;
                                 });
-                              },
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: "Numerator",
-                                hintStyle: TextStyle(color: Color(0xff494D5f)),
-                              )),
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.40,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Color(0xffF8F8F8),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                offset: Offset(0.0, 1.0), //(x,y)
-                                blurRadius: 6.0,
-                              ),
-                            ],
-                          ),
-                          padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                          child: TextFormField(
-                              keyboardType: TextInputType.number,
+                              }),
+                          Text("GCD",
+                              style: TextStyle(
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.08,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black))
+                        ]),
+                        Column(children: [
+                          Radio(
+                              value: 2,
+                              groupValue: group,
                               onChanged: (value) {
                                 setState(() {
-                                  f2Den = double.parse(value);
+                                  group = value;
                                 });
-                              },
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: "Denominator",
-                                hintStyle: TextStyle(color: Color(0xff494D5f)),
-                              )),
-                        ),
-                      ]),
-                ),
+                              }),
+                          Text("LCM",
+                              style: TextStyle(
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.08,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black))
+                        ]),
+                      ],
+                    )),
                 ButtonTheme(
                   minWidth: MediaQuery.of(context).size.width * 0.4,
                   height: MediaQuery.of(context).size.height * 0.06,
                   child: RaisedButton(
                     onPressed: () {
-                      if (validation.isEmpty(f1Num) ||
-                          validation.isEmpty(f1Den) ||
-                          validation.isEmpty(f2Num) ||
-                          validation.isEmpty(f2Den)) {
+                      if (validation.isEmpty(x) ||
+                          validation.isEmpty(y) ||
+                          validation.isEmpty(z)) {
                         validation.showToastText();
-                      } else if (validation.isZero(f1Den) || validation.isZero(f2Den)) {
-                        validation.showToastZero();
-                      } else {
+                      } else if (group == 1) {
+                        double c = 2, gcd = 1;
+                        double xc = x, yc = y, zc = z;
+                        while (c <= xc && c <= yc && c <= zc) {
+                          while (xc % c == 0 && yc % c == 0 && zc % c == 0) {
+                            gcd = gcd * c;
+                            xc = xc / c;
+                            yc = yc / c;
+                            zc = zc / c;
+                          }
+                          c = c + 1;
+                        }
                         setState(() {
-                          double n = (f1Num * f2Den) + (f2Num * f1Den); 
-                          double d = (f1Den * f2Den); 
-                          result = (n.toString() + "/" + d.toString()).toString();
+                          result = gcd.toString();
                         });
+                      } else if (group == 2) {
+                        double numMax = x;
+                        if (y > numMax) {
+                          numMax = y;
+                        }
+                        if (z > numMax) {
+                          numMax = z;
+                        }
+                        double c = numMax;
+                        while (c % x != 0 || c % y != 0 || c % z != 0) {
+                          c++;
+                        }
+                        setState(() {
+                          result = c.toString();
+                        });
+                      } else {
+                        Fluttertoast.showToast(
+                          msg: 'You have to choose one mode',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                        );
                       }
                     },
                     elevation: 5,
@@ -230,7 +266,7 @@ class _FractionAddState extends State<FractionAdd> {
                 ),
                 Container(
                     margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height * 0.07),
+                        top: MediaQuery.of(context).size.height * 0.03),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'validation.dart';
 
 class Speed extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class Speed extends StatefulWidget {
 class _SpeedState extends State<Speed> {
   double distance, time;
   String result = "";
+  var validation = Validation();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class _SpeedState extends State<Speed> {
           MediaQuery.of(context).size.height * 0.03,
         ),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -93,7 +95,8 @@ class _SpeedState extends State<Speed> {
                 ),
                 Container(
                   margin: EdgeInsets.only(
-                      top: 10, bottom: MediaQuery.of(context).size.height * 0.03),
+                      top: 10,
+                      bottom: MediaQuery.of(context).size.height * 0.03),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Color(0xffF8F8F8),
@@ -124,9 +127,16 @@ class _SpeedState extends State<Speed> {
                   height: MediaQuery.of(context).size.height * 0.06,
                   child: RaisedButton(
                     onPressed: () {
-                      setState(() {
-                        result = (distance / time).toString();
-                      });
+                      if (validation.isEmpty(distance) ||
+                          validation.isEmpty(time)) {
+                        validation.showToastText();
+                      } else if (validation.isZero(time)) {
+                        validation.showToastZero();
+                      } else {
+                        setState(() {
+                          result = (distance / time).toString();
+                        });
+                      }
                     },
                     elevation: 5,
                     shape: RoundedRectangleBorder(
@@ -139,7 +149,8 @@ class _SpeedState extends State<Speed> {
                             style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Roboto",
-                              fontSize: MediaQuery.of(context).size.width * 0.05,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.05,
                               fontWeight: FontWeight.bold,
                             )),
                       ],
@@ -155,7 +166,8 @@ class _SpeedState extends State<Speed> {
                         Text("Result",
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: MediaQuery.of(context).size.width * 0.14,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.14,
                               fontWeight: FontWeight.bold,
                             )),
                         Text(result,

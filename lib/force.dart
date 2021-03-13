@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'validation.dart';
 
 class Force extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class Force extends StatefulWidget {
 class _ForceState extends State<Force> {
   double mass, acceleration;
   String result = "";
+  var validation = Validation();
 
   @override
   Widget build(BuildContext context) {
@@ -125,9 +127,16 @@ class _ForceState extends State<Force> {
                   height: MediaQuery.of(context).size.height * 0.06,
                   child: RaisedButton(
                     onPressed: () {
-                      setState(() {
-                        result = (mass / acceleration).toString();
-                      });
+                      if (validation.isEmpty(mass) ||
+                          validation.isEmpty(acceleration)) {
+                        validation.showToastText();
+                      } else if (validation.isZero(acceleration)) {
+                        validation.showToastZero();
+                      } else {
+                        setState(() {
+                          result = (mass / acceleration).toString();
+                        });
+                      }
                     },
                     elevation: 5,
                     shape: RoundedRectangleBorder(

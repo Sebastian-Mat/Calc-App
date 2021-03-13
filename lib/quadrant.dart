@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'validation.dart';
 
 class Quadrant extends StatefulWidget {
   @override
@@ -8,7 +9,7 @@ class Quadrant extends StatefulWidget {
 class _QuadrantState extends State<Quadrant> {
   double x, y;
   String result = "";
-
+  var validation = Validation();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,19 +126,23 @@ class _QuadrantState extends State<Quadrant> {
                   height: MediaQuery.of(context).size.height * 0.06,
                   child: RaisedButton(
                     onPressed: () {
-                      setState(() {
-                        if (x > 0 && y > 0) {
-                          result = "1st";
-                        } else if (x < 0 && y > 0) {
-                          result = "2nd";
-                        } else if (x < 0 && y < 0) {
-                          result = "3rd";
-                        } else if (x > 0 && y < 0) {
-                          result = "4th";
-                        } else {
-                          result = "Axis";
-                        }
-                      });
+                      if( validation.isEmpty(x) || validation.isEmpty(y) ){
+                        validation.showToastText();
+                      } else {
+                        setState(() {
+                          if (x > 0 && y > 0) {
+                            result = "1st";
+                          } else if (x < 0 && y > 0) {
+                            result = "2nd";
+                          } else if (x < 0 && y < 0) {
+                            result = "3rd";
+                          } else if (x > 0 && y < 0) {
+                            result = "4th";
+                          } else {
+                            result = "Axis";
+                          }
+                        });
+                      }
                     },
                     elevation: 5,
                     shape: RoundedRectangleBorder(
@@ -183,6 +188,6 @@ class _QuadrantState extends State<Quadrant> {
             )),
       ),
     );
-    ;
   }
 }
+
