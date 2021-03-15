@@ -9,7 +9,7 @@ class Validation {
     return val;
   }
 
-  bool isEmpty(double number) {
+  bool isEmpty(num number) {
     bool val = true;
     if (number != null) {
       val = false;
@@ -20,6 +20,14 @@ class Validation {
   void showToastText() {
     Fluttertoast.showToast(
       msg: 'You have to complete all the fields',
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+    );
+  }
+
+  void showToastResistence(String message) {
+    Fluttertoast.showToast(
+      msg: message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
     );

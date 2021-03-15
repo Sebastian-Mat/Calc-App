@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'speed.dart';
 import 'force.dart';
+import 'voltage.dart';
 
 class Physics extends StatefulWidget {
   @override
@@ -44,7 +45,7 @@ class _PhysicsState extends State<Physics> {
                         child: RaisedButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => Speed()));
+                                builder: (context) => Speed()));
                           },
                           elevation: 5,
                           shape: RoundedRectangleBorder(
@@ -77,7 +78,7 @@ class _PhysicsState extends State<Physics> {
                         child: RaisedButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => Force()));
+                                builder: (context) => Force()));
                           },
                           elevation: 5,
                           shape: RoundedRectangleBorder(
@@ -112,7 +113,10 @@ class _PhysicsState extends State<Physics> {
                         minWidth: MediaQuery.of(context).size.width * 0.42,
                         height: MediaQuery.of(context).size.height * 0.20,
                         child: RaisedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Voltages()));
+                          },
                           elevation: 5,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
