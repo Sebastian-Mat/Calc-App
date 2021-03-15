@@ -76,125 +76,137 @@ class _VoltagesState extends State<Voltages> {
                         fontSize: MediaQuery.of(context).size.width * 0.045,
                       )),
                 ),
-                Container(
-                  margin: EdgeInsets.only(
-                      top: 10,
-                      bottom: MediaQuery.of(context).size.height * 0.03),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffF8F8F8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        offset: Offset(0.0, 1.0), //(r1,r2)
-                        blurRadius: 6.0,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.40,
+                      margin: EdgeInsets.only(
+                          top: 10,
+                          bottom: MediaQuery.of(context).size.height * 0.03),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xffF8F8F8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            offset: Offset(0.0, 1.0), //(r1,r2)
+                            blurRadius: 6.0,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                  child: TextFormField(
-                      enabled: true,
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) {
-                        setState(() {
-                          amper = num.parse(value);
-                        });
-                      },
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Amperage",
-                        hintStyle: TextStyle(color: Color(0xFF9E9E9E)),
-                      )),
+                      padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                      child: TextFormField(
+                          enabled: true,
+                          keyboardType: TextInputType.number,
+                          onChanged: (value) {
+                            setState(() {
+                              amper = num.parse(value);
+                            });
+                          },
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Amperage",
+                            hintStyle: TextStyle(color: Color(0xFF9E9E9E)),
+                          )),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.40,
+                      margin: EdgeInsets.only(
+                          top: 10,
+                          bottom: MediaQuery.of(context).size.height * 0.03),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xffF8F8F8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            offset: Offset(0.0, 1.0), //(r1,r2)
+                            blurRadius: 6.0,
+                          ),
+                        ],
+                      ),
+                      padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                      child: TextFormField(
+                          enabled: active1,
+                          keyboardType: TextInputType.number,
+                          onChanged: (value) {
+                            setState(() {
+                              r1 = int.parse(value);
+                            });
+                          },
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Resistence",
+                            hintStyle: TextStyle(color: disableColor1),
+                          )),
+                    ),
+                  ],
                 ),
-                Container(
-                  margin: EdgeInsets.only(
-                      top: 10,
-                      bottom: MediaQuery.of(context).size.height * 0.03),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffF8F8F8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        offset: Offset(0.0, 1.0), //(r1,r2)
-                        blurRadius: 6.0,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.40,
+                      margin: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height * 0.03),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xffF8F8F8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            offset: Offset(0.0, 1.0), //(r1,r2)
+                            blurRadius: 6.0,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                  child: TextFormField(
-                      enabled: active1,
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) {
-                        setState(() {
-                          r1 = int.parse(value);
-                        });
-                      },
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Resistence",
-                        hintStyle: TextStyle(color: disableColor1),
-                      )),
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                      top: 10,
-                      bottom: MediaQuery.of(context).size.height * 0.03),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffF8F8F8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        offset: Offset(0.0, 1.0), //(r1,r2)
-                        blurRadius: 6.0,
+                      padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                      child: TextFormField(
+                          enabled: active2,
+                          keyboardType: TextInputType.number,
+                          onChanged: (value) {
+                            setState(() {
+                              r2 = int.parse(value);
+                            });
+                          },
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Resistence",
+                            hintStyle: TextStyle(color: disableColor2),
+                          )),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.40,
+                      margin: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height * 0.03),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(0xffF8F8F8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            offset: Offset(0.0, 1.0), //(r1,r2)
+                            blurRadius: 6.0,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                  child: TextFormField(
-                      enabled: active2,
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) {
-                        setState(() {
-                          r2 = int.parse(value);
-                        });
-                      },
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Resistence",
-                        hintStyle: TextStyle(color: disableColor2),
-                      )),
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                      top: 10,
-                      bottom: MediaQuery.of(context).size.height * 0.03),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffF8F8F8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        offset: Offset(0.0, 1.0), //(r1,r2)
-                        blurRadius: 6.0,
-                      ),
-                    ],
-                  ),
-                  padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                  child: TextFormField(
-                      enabled: active3,
-                      keyboardType: TextInputType.number,
-                      onChanged: (value) {
-                        setState(() {
-                          r3 = int.parse(value);
-                        });
-                      },
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Resistence",
-                        hintStyle: TextStyle(color: disableColor3),
-                      )),
+                      padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                      child: TextFormField(
+                          enabled: active3,
+                          keyboardType: TextInputType.number,
+                          onChanged: (value) {
+                            setState(() {
+                              r3 = int.parse(value);
+                            });
+                          },
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Resistence",
+                            hintStyle: TextStyle(color: disableColor3),
+                          )),
+                    ),
+                  ],
                 ),
                 Container(
                   child: Center(
@@ -328,7 +340,7 @@ class _VoltagesState extends State<Voltages> {
                 ),
                 Center(
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(55, 10, 0, 0),
+                    padding: EdgeInsets.fromLTRB(55, 0, 0, 0),
                     child: ListTile(
                       onTap: () {
                         setState(() {
@@ -350,7 +362,7 @@ class _VoltagesState extends State<Voltages> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 30),
+                  padding: EdgeInsets.only(top: 15),
                 ),
                 ButtonTheme(
                   minWidth: MediaQuery.of(context).size.width * 0.4,
